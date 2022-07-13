@@ -1,0 +1,9 @@
+{{- if .Values.serviceAccount.create -}}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+{{ include "nginx.release.name" . | indent 2 }}
+  labels:
+    app.kubernetes.io/name: nginx-app
+    app.kubernetes.io/instance: nginx
+{{- end }}
